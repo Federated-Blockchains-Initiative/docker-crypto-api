@@ -9,15 +9,15 @@ app.on('request', (req, res) => {
     case 'GET /heartbeat' :
       return res.send('alive');
     case 'GET /current':
-      return res.json({BTC: quotes.getPrice('BTC'), ETH: quotes.getPrice('ETH'), LTC: quotes.getPrice('LTC'), BCH: quotes.getPrice('BCH')});
+      return res.json({BTC: quotes.getPrice('BTC'), BCH: quotes.getPrice('BCH'), ETH: quotes.getPrice('ETH'), LTC: quotes.getPrice('LTC')});
     case 'GET /current/BTC':
       return res.json({BTC: quotes.getPrice('BTC')});
+    case 'GET /current/BCH':
+      return res.json({BCH: quotes.getPrice('BCH')});
     case 'GET /current/ETH':
       return res.json({ETH: quotes.getPrice('ETH')});
     case 'GET /current/LTC':
       return res.json({LTC: quotes.getPrice('LTC')});
-    case 'GET /current/BCH':
-      return res.json({BCH: quotes.getPrice('BCH')});
     default:
       return res.error(404, 'Not Found');
   }

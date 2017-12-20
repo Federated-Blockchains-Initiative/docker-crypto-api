@@ -2,14 +2,14 @@ const CCC = require('./ccc-streamer-utilities');
 
 const _cache = {
   BTC: {},
+  BCH: {},
   ETH: {},
   LTC: {},
-  BCH: {},
 };
 
 const socket = require('socket.io-client')('https://streamer.cryptocompare.com/');
 
-const subscription = ['2~Coinbase~BTC~USD', '2~Coinbase~ETH~USD', '2~Coinbase~LTC~USD', '2~Poloniex~BCH~USD'];
+const subscription = ['2~Coinbase~BTC~USD', '2~Coinbase~BCH~USD', '2~Coinbase~ETH~USD', '2~Coinbase~LTC~USD'];
 socket.emit('SubAdd', {subs: subscription});
 
 socket.on('m', function(message) {
